@@ -6,6 +6,7 @@ import { BreedsModule } from './modules/breeds/breeds.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { ImagesModule } from './modules/images/images.module';
 import { DogsModule } from './modules/dogs/dogs.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
     imports: [
@@ -19,6 +20,7 @@ import { DogsModule } from './modules/dogs/dogs.module';
         CategoriesModule,
         ImagesModule,
         DogsModule,
+        HealthModule,
     ],
 })
 export class AppModule { }

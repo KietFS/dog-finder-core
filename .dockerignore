@@ -1,0 +1,36 @@
+# Dependencies (reinstalled in Docker)
+node_modules/
+
+# Compiled output (rebuilt in Docker)
+dist/
+
+# Environment files (injected at runtime via env vars or secrets)
+.env
+.env.*
+!.env.example
+
+# Source control
+.git/
+.gitignore
+
+# Tests & coverage
+test/
+coverage/
+*.spec.ts
+
+# Local dev / IDE
+.vscode/
+.idea/
+*.log
+
+# Docker files themselves (no need to copy these in)
+Dockerfile
+docker-compose*.yml
+
+# Docs
+*.md
+README*
+
+# OS
+.DS_Store
+Thumbs.db
