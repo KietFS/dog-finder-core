@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   app:
-    image: ${DOCKER_IMAGE:-dog-finder-core:latest}
+    image: 560437253516.dkr.ecr.ap-southeast-2.amazonaws.com/dog-finder/dog-finder-core:latest
     container_name: dog-finder-app
     ports:
       - '${PORT:-3000}:3000'
