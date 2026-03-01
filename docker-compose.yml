@@ -2,8 +2,6 @@ version: '3.9'
 
 # ─────────────────────────────────────────────────────────────────────────────
 # LOCAL DEVELOPMENT ONLY
-# Uses local Postgres + Redis containers.
-# For production (EC2 + RDS + ElastiCache) use docker-compose.prod.yml
 # ─────────────────────────────────────────────────────────────────────────────
 
 services:
@@ -49,7 +47,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    restart: unless-stopped
+    restart: 'on-failure'
     networks:
       - dog-finder-network
 

@@ -21,6 +21,7 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:generate": "npm run typeorm -- migration:generate -d src/config/database.config.ts",
     "migration:run": "npm run typeorm -- migration:run -d src/config/database.config.ts",
+    "migration:run:prod": "node -e \"const ds=require('./dist/config/database.config').default;ds.initialize().then(()=>ds.runMigrations()).then(()=>{console.log('Migrations done');process.exit(0)}).catch(e=>{console.error(e);process.exit(1)})\"",
     "migration:revert": "npm run typeorm -- migration:revert -d src/config/database.config.ts",
     "seed": "ts-node src/database/seeds/seed.ts"
   },

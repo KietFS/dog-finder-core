@@ -25,8 +25,8 @@ RUN npm prune --production
 # ─────────────────────────────────────────────────────────────────────────────
 FROM node:20-alpine AS production
 
-# Install dumb-init for proper signal handling (PID 1 problem)
-RUN apk add --no-cache dumb-init
+# Install dumb-init for proper signal handling + redis-cli for cache flushing on seed
+RUN apk add --no-cache dumb-init redis
 
 WORKDIR /app
 

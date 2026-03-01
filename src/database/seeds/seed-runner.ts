@@ -27,11 +27,11 @@ async function runSeed() {
     const imageRepo = seedDataSource.getRepository(Image);
     const dogRepo = seedDataSource.getRepository(Dog);
 
-    // Clear existing data in dependency order
-    await dogRepo.delete({});
-    await imageRepo.delete({});
-    await breedRepo.delete({});
-    await categoryRepo.delete({});
+    // Truncate all tables in one shot with CASCADE to handle FK constraints.
+    // RESTART IDENTITY resets auto-increment sequences back to 1.
+    await seedDataSource.query(
+        `TRUNCATE TABLE dogs, images, breeds, categories RESTART IDENTITY CASCADE`,
+    );
     console.log('🗑️  Cleared existing data');
 
     // Seed Categories
